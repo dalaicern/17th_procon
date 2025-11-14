@@ -61,9 +61,11 @@ class SubmitReq(BaseModel):
 async def print_scoreboard():
     while True:
         scoreboard = [(k, v[0], -v[1]) for k, v in p.teams.items()]
-        scoreboard = sorted(scoreboard, reverse = True)
+        scoreboard = sorted(scoreboard, key = lambda x: (x[1], x[2]), reverse = True)
+        print('==================================================')
         for i, x in enumerate(scoreboard):
             print(str(i+1) + '. ' + x[0], x[1], -x[2])
+        print('==================================================')
         await asyncio.sleep(10)  # Run every 10 seconds
 
 @app.on_event("startup")
