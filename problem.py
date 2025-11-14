@@ -22,7 +22,7 @@ def eval_score(a, n):
     score = 0
     for i in range(n):
         for j in range(n):
-            if a[i][j] > 0:
+            if a[i][j] >= 0:
                 if i + 1 < n and a[i][j] == a[i+1][j]:
                     score += 1
                     a[i][j] = a[i+1][j] = -1
