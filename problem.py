@@ -75,7 +75,7 @@ class Problem:
         
     def new_submission(self, team, d):
         submission_time = int(datetime.now().timestamp())
-        a = copy.copy(self.field)
+        a = copy.deepcopy(self.field)
         for op in d.ops:
             x, y, size = op.x, op.y, op.n
             if x + size > self.n or y + size > self.n or x < 0 or y < 0:
